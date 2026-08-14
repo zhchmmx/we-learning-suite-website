@@ -130,6 +130,102 @@
     color: #fff;
   }
 
+  .nav-account {
+    padding: 8px 24px;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: all 0.25s;
+    border: 1px solid var(--btn-outline-border);
+    background: none;
+  }
+
+  .nav-account:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
+  /* ===== FEATURE LIST ===== */
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feature-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--primary);
+  }
+
+  .feature-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    transition: color 0.35s;
+  }
+
+  .feature-text p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    transition: color 0.35s;
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    padding: 32px 40px;
+    border-top: 1px solid var(--nav-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    transition: border-color 0.35s;
+  }
+
+  .footer-copyright {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  .footer-links a:hover {
+    color: var(--primary);
+  }
+
   .theme-toggle {
     width: 48px;
     height: 26px;
@@ -392,7 +488,8 @@
   }
 </style>
 </head>
-<body data-theme="light">
+<!-- [HIDDEN] 页面暂不展示 — 移除 body 上的 style="display:none" 即可恢复 -->
+<body data-theme="light" style="display:none">
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -403,9 +500,14 @@
 
   <div class="navbar-right">
     <a class="nav-tab" href="index.html">We Quiz</a>
-    <a class="nav-tab" href="we-learn-landing.html">We Learn</a>
-    <a class="nav-tab active" href="we-review-landing.html">We Review</a>
+    <!-- [HIDDEN] We Learn tab — 取消注释即可显示 -->
+    <!-- <a class="nav-tab" href="we-learn-landing.html">We Learn</a> -->
+    <!-- [/HIDDEN] -->
+    <!-- [HIDDEN] We Review tab — 取消注释即可显示 -->
+    <!-- <a class="nav-tab active" href="we-review-landing.html">We Review</a> -->
+    <!-- [/HIDDEN] -->
     <a class="nav-tab" href="pricing.html">Pricing</a>
+    <a class="nav-account" href="https://we-apps-account.pages.dev" target="_blank" rel="noopener">账户</a>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换深色模式">
       <span class="icon-sun">&#9728;</span>
       <span class="icon-moon">&#9790;</span>
@@ -448,11 +550,52 @@
   </div>
 
   <div class="hero-right">
-    <div class="screenshot-placeholder">
-      <span class="placeholder-coming-soon">Coming soon...</span>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h3>知识库管理</h3>
+          <p>将你的文档、资料统一整理为结构化知识库</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h3>AI 智能问答</h3>
+          <p>基于知识库中的文档进行 AI 对话，快速获取所需信息</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          <h3>精准检索</h3>
+          <p>从大量文档中精准定位你需要的内容</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<footer class="site-footer">
+  <span class="footer-copyright">&copy; 2026 We Apps. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="mailto:support@weapps.dns-dynamic.net">联系我们</a>
+    <a href="https://we-apps-account.pages.dev/privacy" target="_blank" rel="noopener">隐私政策</a>
+    <a href="https://we-apps-account.pages.dev/terms" target="_blank" rel="noopener">服务条款</a>
+  </div>
+</footer>
 
 <script>
 function toggleTheme() {
